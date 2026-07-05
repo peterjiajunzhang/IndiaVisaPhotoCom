@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Visa ID Photo 1-Tap — eVisa digital photo, one tap, on-device</title>
+    <meta name="description" content="Turn any portrait into a compliant India eVisa digital photo: automatic background removal, square 1000×1000 px export, and on-device privacy. For iPhone.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ff9933',
+                        'brand-dark': '#e07f1a',
+                        navy: '#0a1628',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: radial-gradient(ellipse 120% 80% at 50% 20%, rgba(255, 153, 51, 0.20) 0%, transparent 50%),
+                linear-gradient(145deg, #0a1120 0%, #0a1628 45%, #0d1a2a 100%);
+        }
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        @keyframes complianceRowIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .compliance-row {
+            opacity: 0;
+            animation: complianceRowIn 0.5s ease forwards;
+        }
+        .compliance-row:nth-child(1) { animation-delay: 0.05s; }
+        .compliance-row:nth-child(2) { animation-delay: 0.12s; }
+        .compliance-row:nth-child(3) { animation-delay: 0.19s; }
+        .compliance-row:nth-child(4) { animation-delay: 0.26s; }
+        .compliance-row:nth-child(5) { animation-delay: 0.33s; }
+        .compliance-row:nth-child(6) { animation-delay: 0.40s; }
+        .mock-phone {
+            width: min(280px, 70vw);
+            border-radius: 2.5rem;
+            background: linear-gradient(165deg, #101a2c 0%, #0a1628 100%);
+            padding: 14px;
+            box-shadow: 0 30px 60px -12px rgba(10, 22, 40, 0.35), inset 0 0 0 1px rgba(255,255,255,0.06);
+        }
+        .mock-screen {
+            background: #fff;
+            border-radius: 1.75rem;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            position: relative;
+        }
+        .mock-notch {
+            position: absolute;
+            top: 8px; left: 50%; transform: translateX(-50%);
+            width: 34%; height: 18px;
+            background: #0a1628;
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="AppIcon.png" alt="India Visa ID Photo 1-Tap" class="w-8 h-8 rounded-lg" width="1024" height="1024" decoding="async">
+                <span class="font-semibold text-gray-900 tracking-tight">India Visa ID Photo 1-Tap</span>
+            </div>
+            <div class="flex items-center gap-6 text-sm">
+                <a href="#app" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Screenshots</a>
+                <a href="#features" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Features</a>
+                <a href="#compliance-checklist" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Compliance</a>
+                <a href="#languages" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Languages</a>
+                <a href="#pricing" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Pricing</a>
+                <a href="#download" class="bg-brand text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-brand-dark transition">Coming Soon</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="gradient-hero text-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 py-20 md:py-32">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-1.5 text-sm mb-8">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                    <span class="text-gray-200">100% on-device — auto cutout &amp; export on your iPhone</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
+                    <span class="text-white">One-Tap</span><br>
+                    <span class="text-brand">India eVisa Photos</span><br>
+                    <span class="text-gray-200 text-3xl sm:text-4xl md:text-5xl font-semibold">Square format. Upload-ready.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-gray-300 max-w-xl mx-auto mb-10 leading-relaxed">
+                    Built for the <strong class="text-white">indianvisaonline.gov.in</strong> e-Visa upload — automatic background removal, a square export sized for the portal, and a live checklist before you pay. Same proven pipeline as our US &amp; China apps.
+                </p>
+
+                <div id="download" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <span class="inline-flex items-center gap-2 bg-white text-navy px-8 py-3.5 rounded-xl font-semibold text-base cursor-default">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                        Coming soon to the App Store
+                    </span>
+                    <a href="mailto:zhangjj2007@yahoo.com?subject=Notify%20me%20-%20India%20Visa%20Photo" class="text-gray-300 hover:text-white text-sm underline underline-offset-4 transition">Get notified at launch</a>
+                </div>
+                <p class="text-gray-500 text-sm mt-4">iOS 17+ &middot; iPhone</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-50 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-6 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-gray-500">
+            <div class="flex items-center gap-2">
+                <i data-lucide="scissors" class="w-4 h-4 text-brand"></i>
+                <span>Automatic background removal</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i data-lucide="square" class="w-4 h-4 text-brand"></i>
+                <span>Square eVisa format (up to 1000×1000 px)</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i data-lucide="cpu" class="w-4 h-4 text-brand"></i>
+                <span>Apple Vision on-device</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i data-lucide="eye-off" class="w-4 h-4 text-brand"></i>
+                <span>No photo uploads to us</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="app" class="py-20 md:py-28 scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <p class="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2">In the app</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Pick a photo.<br><span class="text-brand">Upload-ready in one tap.</span></h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Real device screenshots go here once the first TestFlight build lands — for now, here's the shape of the flow.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto justify-items-center">
+                <div class="flex flex-col items-center">
+                    <div class="mock-phone">
+                        <div class="mock-screen flex flex-col items-center justify-center gap-3 px-4">
+                            <div class="mock-notch"></div>
+                            <i data-lucide="image" class="w-9 h-9 text-brand mt-6"></i>
+                            <div class="w-full space-y-1.5 mt-2">
+                                <div class="h-16 rounded-lg bg-gray-100 border border-gray-200"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-xs font-semibold text-gray-500">1 &middot; Pick a photo</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="mock-phone">
+                        <div class="mock-screen flex flex-col items-center justify-center gap-2 px-4">
+                            <div class="mock-notch"></div>
+                            <div class="w-20 h-20 rounded-md bg-gray-100 border border-gray-200 mt-8 mb-2"></div>
+                            <div class="w-full space-y-1.5">
+                                <div class="h-4 rounded bg-emerald-50 border border-emerald-200 flex items-center px-2 text-[9px] font-semibold text-emerald-600">✓ Square canvas</div>
+                                <div class="h-4 rounded bg-emerald-50 border border-emerald-200 flex items-center px-2 text-[9px] font-semibold text-emerald-600">✓ Head 1-1⅜in</div>
+                                <div class="h-4 rounded bg-emerald-50 border border-emerald-200 flex items-center px-2 text-[9px] font-semibold text-emerald-600">✓ JPEG ≤300 KB</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-xs font-semibold text-gray-500">2 &middot; Live export checklist</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="mock-phone">
+                        <div class="mock-screen flex flex-col items-center justify-center gap-3 px-4">
+                            <div class="mock-notch"></div>
+                            <div class="w-24 h-24 rounded-lg bg-white border-2 border-gray-200 mt-8 shadow-sm"></div>
+                            <div class="flex gap-2 mt-2">
+                                <div class="w-16 h-7 rounded-lg bg-brand flex items-center justify-center text-[9px] font-bold text-white">Download</div>
+                                <div class="w-14 h-7 rounded-lg bg-gray-100 flex items-center justify-center text-[9px] font-bold text-gray-500">Share</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-xs font-semibold text-gray-500">3 &middot; Unlock &amp; export</p>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-400 mt-12 max-w-2xl mx-auto">The same <strong class="text-gray-600">live checklist</strong> style as our US, China &amp; Schengen apps — tuned to the India e-Visa upload spec.</p>
+        </div>
+    </section>
+
+    <section id="compliance-checklist" class="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">What we optimize for (India e-Visa)</h2>
+                <p class="text-gray-500">The app guides composition toward the digital photo spec published on <strong>indianvisaonline.gov.in</strong>. Always confirm the latest rules before you submit — government portals can change limits without much notice.</p>
+            </div>
+            <div class="bg-gray-50 rounded-2xl border border-gray-100 p-6 md:p-8">
+                <ul class="space-y-4 text-left text-sm md:text-base text-gray-800">
+                    <li class="compliance-row flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span><strong>Square canvas</strong> &mdash; exported up to <strong>1000×1000 px</strong>, within the portal's 350–1000 px allowed range.</span>
+                    </li>
+                    <li class="compliance-row flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span><strong>Head &amp; eye position</strong> &mdash; head height and eye height held to the portal's 1–1⅜ in / 1⅛–1⅜ in bands (of an implicit 2×2 in frame).</span>
+                    </li>
+                    <li class="compliance-row flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span><strong>JPEG size policy</strong> &mdash; export compressed to fit the portal's <strong>10–300 KB</strong> window.</span>
+                    </li>
+                    <li class="compliance-row flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span><strong>Plain white/light background</strong> &mdash; after automatic cutout, no shadows or border.</span>
+                    </li>
+                    <li class="compliance-row flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span><strong>No face reshaping</strong> &mdash; segmentation and cropping only; we don't slim or resize facial geometry.</span>
+                    </li>
+                    <li class="compliance-row flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span><strong>Privacy</strong> &mdash; segmentation and matting run on your iPhone; no separate upload to our servers for processing.</span>
+                    </li>
+                </ul>
+                <p class="text-xs text-gray-400 mt-6 leading-relaxed">This app targets the e-Visa <strong>online upload</strong> spec. If you're applying through a visa application center for a printed photo (2×2 in / 50×50 mm), confirm the face-height figure with them — it differs slightly from the digital rule. Final acceptance is always at the discretion of the Indian government portal or visa application center you use.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="bg-gray-50 py-20 md:py-28">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Built for the <span class="text-brand">India e-Visa</span> upload</h2>
+                <p class="text-gray-500 text-lg max-w-xl mx-auto">One tap from photo library to a compliant square portrait — sized and checked for the online portal.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-5">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-brand"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Auto cutout &amp; white backdrop</h3>
+                    <p class="text-gray-500 leading-relaxed">
+                        Apple Vision–powered segmentation removes busy backgrounds and drops you onto a clean plain plate — the starting point the portal expects.
+                    </p>
+                </div>
+                <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-5">
+                        <i data-lucide="scan-face" class="w-6 h-6 text-brand"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Square crop &amp; checklist</h3>
+                    <p class="text-gray-500 leading-relaxed">
+                        Framing and readouts aligned to the e-Visa reference proportions, exported up to <strong>1000×1000 px</strong> inside the allowed pixel window.
+                    </p>
+                </div>
+                <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-5">
+                        <i data-lucide="lock" class="w-6 h-6 text-brand"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">On-device only</h3>
+                    <p class="text-gray-500 leading-relaxed">
+                        Core image work stays on your phone. Purchase flows use Apple's systems; we don't run our own photo cloud for editing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages" class="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-orange-50 rounded-xl mb-5">
+                <i data-lucide="languages" class="w-6 h-6 text-brand"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">Same multilingual UI as our app family</h2>
+            <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                Built-in language switcher: English, 简体中文, 繁體中文, Español, 日本語, Deutsch, Français — matching our US, China &amp; Schengen apps.
+            </p>
+            <ul class="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto text-sm md:text-base">
+                <li class="bg-gray-50 border border-gray-200 rounded-full px-4 py-2 font-medium text-gray-800">English</li>
+                <li class="bg-gray-50 border border-gray-200 rounded-full px-4 py-2 font-medium text-gray-800">简体中文</li>
+                <li class="bg-gray-50 border border-gray-200 rounded-full px-4 py-2 font-medium text-gray-800">繁體中文</li>
+                <li class="bg-gray-50 border border-gray-200 rounded-full px-4 py-2 font-medium text-gray-800">Español</li>
+                <li class="bg-gray-50 border border-gray-200 rounded-full px-4 py-2 font-medium text-gray-800">日本語</li>
+                <li class="bg-gray-50 border border-gray-200 rounded-full px-4 py-2 font-medium text-gray-800">Deutsch</li>
+                <li class="bg-gray-50 border border-gray-200 rounded-full px-4 py-2 font-medium text-gray-800">Français</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-20 md:py-28">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Three steps</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-brand text-white rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">1</div>
+                    <h3 class="font-semibold mb-2">Pick a photo</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Any clear front-facing shot from your library — more headroom makes composition easier.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-brand text-white rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
+                    <h3 class="font-semibold mb-2">One-tap process</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Auto cutout to white, crop to square e-Visa proportions, then review the animated checklist.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-brand text-white rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
+                    <h3 class="font-semibold mb-2">Unlock &amp; export</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Single consumable purchase per export — save to Photos and upload to indianvisaonline.gov.in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="bg-gray-50 py-20 md:py-28">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Pay per export</h2>
+                <p class="text-gray-500 text-lg max-w-xl mx-auto">No subscription — unlock one processed photo at a time, same model as our other apps.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div class="bg-brand text-white rounded-2xl p-8 shadow-xl shadow-brand/20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="AppIcon.png" alt="" class="w-10 h-10 rounded-xl" width="1024" height="1024" decoding="async">
+                        <span class="font-semibold">India Visa ID Photo 1-Tap</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold">$1.99</span>
+                        <span class="text-white/70 ml-1">/ export</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-white/90">
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>Square export up to 1000×1000 px</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>Automatic cutout + white/light plate</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>e-Visa checklist in-app</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>On-device processing</li>
+                    </ul>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-center">
+                    <h3 class="font-semibold text-gray-900 mb-2">Why not a photo studio?</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Studios work great when you're already there — this app is for when you already have a decent phone photo and want an upload-ready file fast, privately, and repeatably.</p>
+                    <p class="text-xs text-gray-400">Exact storefront price may vary by region; shown in USD on the U.S. App Store.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="use-cases" class="py-20 md:py-28">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">When people use it</h2>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto">
+                <span class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-medium">indianvisaonline.gov.in e-Visa upload</span>
+                <span class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-medium">Tourist &amp; business e-Visa</span>
+                <span class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-medium">Replacing a rejected photo</span>
+                <span class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-medium">Last-minute application</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-50 py-20 md:py-28">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <img src="AppIcon.png" alt="" class="w-20 h-20 rounded-[22px] mx-auto mb-8 shadow-lg" width="1024" height="1024" decoding="async">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Your India e-Visa photo<br><span class="text-brand">starts on your phone.</span></h2>
+            <p class="text-gray-500 text-lg mb-10">Launching soon on the App Store — $1.99 per full-resolution export.</p>
+            <a href="mailto:zhangjj2007@yahoo.com?subject=Notify%20me%20-%20India%20Visa%20Photo" class="inline-flex items-center gap-2 bg-brand text-white px-8 py-4 rounded-xl font-semibold hover:bg-brand-dark transition text-base">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+                Get notified at launch
+            </a>
+        </div>
+    </section>
+
+    <footer class="border-t border-gray-100 py-10">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-3">
+                <img src="AppIcon.png" alt="" class="w-6 h-6 rounded-md" width="1024" height="1024" decoding="async">
+                <span>&copy; 2026 India Visa ID Photo 1-Tap</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="privacy.html" class="hover:text-gray-600 transition">Privacy Policy</a>
+                <a href="mailto:zhangjj2007@yahoo.com" class="hover:text-gray-600 transition">Contact</a>
+                <a href="../USVisaPhotoCom/index.html" class="hover:text-gray-600 transition">US Visa Photo</a>
+                <a href="../ChinaVisaPhotoCom/index.html" class="hover:text-gray-600 transition">China Visa Photo</a>
+                <a href="../SchengenVisaPhotoCom/index.html" class="hover:text-gray-600 transition">Schengen Visa Photo</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
