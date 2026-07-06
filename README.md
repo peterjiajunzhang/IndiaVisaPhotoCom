@@ -1,14 +1,14 @@
 # IndiaVisaPhotoCom — marketing site
 
-GitHub Pages (pending first push): **https://peterjiajunzhang.github.io/IndiaVisaPhotoCom/**
+Live site: **https://india.visaphoto1tap.com/**
 
 | Path | Purpose |
 |------|---------|
 | `index.html` | Landing; App Store CTA is a **"Coming soon"** badge — swap in the App Store link once Connect assigns an Apple ID |
 | `privacy.html` | Privacy policy (linked from App Store Connect) |
 | `sitemap.xml` / `robots.txt` | SEO |
-| `marketing/xiaohongshu-india/` | Xiaohongshu post previews & export scripts |
-| `marketing/appstore-india/` | App Store screenshot campaign previews & export scripts |
+| `VisaPhotoApps/Marketing/India/xiaohongshu/` | Xiaohongshu post previews & export scripts |
+| `VisaPhotoApps/Marketing/India/appstore/` | App Store screenshot campaign previews & export scripts |
 | `screenshots/` | Real device screenshots (473×1024) — **does not exist yet**, see naming convention below |
 | `demos/` | Real before/after export examples — **does not exist yet** |
 
@@ -30,7 +30,7 @@ GitHub Pages (pending first push): **https://peterjiajunzhang.github.io/IndiaVis
    | `07-languages.png` | Language switcher menu open |
 
 3. Capture a handful of real before/after export pairs into a new `demos/` folder as `demo-0N-original.jpg` / `demo-0N-result.jpg` (see `SchengenVisaPhotoCom/demos/` for the pattern).
-4. Once those exist: replace the `.mock-phone` illustrations in `index.html`'s `#app` section with real `<img>` screenshots, add a `#demos` before/after wall (see `SchengenVisaPhotoCom/index.html`), export the App Store campaign (`cd marketing/appstore-india && npm run export`), and rebuild the xiaohongshu deck with real screenshots.
+4. Once those exist: replace the `.mock-phone` illustrations in `index.html`'s `#app` section with real `<img>` screenshots, add a `#demos` before/after wall (see `SchengenVisaPhotoCom/index.html` or the live `schengen.visaphoto1tap.com` site), export the App Store campaign (`cd VisaPhotoApps/Marketing/India/appstore && npm run export`), and rebuild the xiaohongshu deck with real screenshots.
 
 **Product facts baked into this site** (source: `VisaPhotoApps/docs/india-visa-photo-spec.md`):
 - Digital e-Visa spec only (`indianvisaonline.gov.in`) — square canvas, up to 1000×1000 px, JPEG 10–300 KB, plain white/light background, head 1–1⅜in / eye 1⅛–1⅜in of an implicit 2×2in frame (same band as the US DS-160 spec).
