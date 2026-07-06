@@ -70,6 +70,61 @@
             background: #0a1628;
             border-radius: 999px;
         }
+        .demo-wall-img {
+            width: 100%;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            object-position: center center;
+            border-radius: 1.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: #fff;
+        }
+        .demo-film {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            padding: 4px 2px 10px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .demo-film::-webkit-scrollbar { height: 8px; }
+        .demo-film::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.16); border-radius: 999px; }
+        .demo-film-item--original {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            width: auto;
+        }
+        .demo-film-original-wrap {
+            width: min(200px, 52vw);
+            border-radius: 22px;
+            overflow: hidden;
+            background: linear-gradient(165deg, #2c2c2e 0%, #1c1c1e 40%, #000 100%);
+            box-shadow:
+                0 16px 40px rgba(0, 0, 0, 0.22),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+            padding: 4px;
+        }
+        .demo-film-thumb-original {
+            width: 100%;
+            height: auto;
+            max-height: min(340px, 58vh);
+            display: block;
+            object-fit: contain;
+            object-position: center center;
+            border-radius: 18px;
+            background: #000;
+        }
+        .demo-film-label {
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: rgba(15, 23, 42, 0.55);
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
@@ -81,6 +136,7 @@
                 <span class="font-semibold text-gray-900 tracking-tight">India Visa ID Photo 1-Tap</span>
             </div>
             <div class="flex items-center gap-6 text-sm">
+                <a href="#demos" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Demos</a>
                 <a href="#app" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Screenshots</a>
                 <a href="#features" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Features</a>
                 <a href="#compliance-checklist" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Compliance</a>
@@ -142,53 +198,102 @@
         </div>
     </section>
 
-    <section id="app" class="py-20 md:py-28 scroll-mt-20">
+    <section id="demos" class="py-20 md:py-28 scroll-mt-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <p class="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2">Real exports</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Any background in.<br><span class="text-brand">Compliant eVisa photo</span> out.</h2>
+                <p class="text-gray-500 text-lg max-w-3xl mx-auto">Real examples: kitchen, garden, hallway, street, living room, home — then clean cutouts on white, cropped to a <strong class="text-gray-700">square 1000×1000 px</strong> eVisa photo.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-5 max-w-6xl mx-auto justify-items-center">
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-01-result.jpg" alt="India eVisa photo export example 1" class="demo-wall-img" width="1000" height="1000" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-02-result.jpg" alt="India eVisa photo export example 2" class="demo-wall-img" width="1000" height="1000" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-03-result.jpg" alt="India eVisa photo export example 3" class="demo-wall-img" width="1000" height="1000" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-04-result.jpg" alt="India eVisa photo export example 4" class="demo-wall-img" width="1000" height="1000" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-05-result.jpg" alt="India eVisa photo export example 5" class="demo-wall-img" width="1000" height="1000" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-06-result.jpg" alt="India eVisa photo export example 6" class="demo-wall-img" width="1000" height="1000" decoding="async"></figure>
+            </div>
+
+            <div class="mt-10 max-w-6xl mx-auto">
+                <div class="flex items-center justify-between gap-4 mb-3">
+                    <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Originals (before) · full aspect, Photos-style</p>
+                    <p class="text-xs text-gray-400 hidden sm:block">Scroll &rarr;</p>
+                </div>
+                <div class="demo-film" aria-label="Original photo strip">
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-01-original.jpg" alt="Original 1" class="demo-film-thumb-original" decoding="async">
+                        </div>
+                        <div class="demo-film-label">Home portrait</div>
+                    </div>
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-02-original.jpg" alt="Original 2" class="demo-film-thumb-original" decoding="async">
+                        </div>
+                        <div class="demo-film-label">Kitchen</div>
+                    </div>
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-03-original.jpg" alt="Original 3" class="demo-film-thumb-original" decoding="async">
+                        </div>
+                        <div class="demo-film-label">Garden</div>
+                    </div>
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-04-original.jpg" alt="Original 4" class="demo-film-thumb-original" decoding="async">
+                        </div>
+                        <div class="demo-film-label">Balcony hallway</div>
+                    </div>
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-05-original.jpg" alt="Original 5" class="demo-film-thumb-original" decoding="async">
+                        </div>
+                        <div class="demo-film-label">Street</div>
+                    </div>
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-06-original.jpg" alt="Original 6" class="demo-film-thumb-original" decoding="async">
+                        </div>
+                        <div class="demo-film-label">Living room</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="app" class="py-4 md:py-8 pb-20 md:pb-28 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
                 <p class="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2">In the app</p>
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Pick a photo.<br><span class="text-brand">Upload-ready in one tap.</span></h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Real device screenshots go here once the first TestFlight build lands — for now, here's the shape of the flow.</p>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Fresh iPhone screenshots: home, live export checklist, unlock, finished export, your on-device Saved Photos library, and the language switcher.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto justify-items-center">
-                <div class="flex flex-col items-center">
-                    <div class="mock-phone">
-                        <div class="mock-screen flex flex-col items-center justify-center gap-3 px-4">
-                            <div class="mock-notch"></div>
-                            <i data-lucide="image" class="w-9 h-9 text-brand mt-6"></i>
-                            <div class="w-full space-y-1.5 mt-2">
-                                <div class="h-16 rounded-lg bg-gray-100 border border-gray-200"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-xs font-semibold text-gray-500">1 &middot; Pick a photo</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="mock-phone">
-                        <div class="mock-screen flex flex-col items-center justify-center gap-2 px-4">
-                            <div class="mock-notch"></div>
-                            <div class="w-20 h-20 rounded-md bg-gray-100 border border-gray-200 mt-8 mb-2"></div>
-                            <div class="w-full space-y-1.5">
-                                <div class="h-4 rounded bg-emerald-50 border border-emerald-200 flex items-center px-2 text-[9px] font-semibold text-emerald-600">✓ Square canvas</div>
-                                <div class="h-4 rounded bg-emerald-50 border border-emerald-200 flex items-center px-2 text-[9px] font-semibold text-emerald-600">✓ Head 1-1⅜in</div>
-                                <div class="h-4 rounded bg-emerald-50 border border-emerald-200 flex items-center px-2 text-[9px] font-semibold text-emerald-600">✓ JPEG ≤300 KB</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-xs font-semibold text-gray-500">2 &middot; Live export checklist</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="mock-phone">
-                        <div class="mock-screen flex flex-col items-center justify-center gap-3 px-4">
-                            <div class="mock-notch"></div>
-                            <div class="w-24 h-24 rounded-lg bg-white border-2 border-gray-200 mt-8 shadow-sm"></div>
-                            <div class="flex gap-2 mt-2">
-                                <div class="w-16 h-7 rounded-lg bg-brand flex items-center justify-center text-[9px] font-bold text-white">Download</div>
-                                <div class="w-14 h-7 rounded-lg bg-gray-100 flex items-center justify-center text-[9px] font-bold text-gray-500">Share</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-xs font-semibold text-gray-500">3 &middot; Unlock &amp; export</p>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-items-center">
+                <figure class="w-full max-w-xs text-left">
+                    <img src="screenshots/01-home.png" alt="India Visa ID Photo 1-Tap: home screen with Take Photo / Choose from Photos" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
+                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Home — Take Photo / Choose from Photos</figcaption>
+                </figure>
+                <figure class="w-full max-w-xs text-left">
+                    <img src="screenshots/02-checklist.png" alt="Full export checklist with India eVisa measurements" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
+                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Full export checklist — canvas, eye/head %, background, JPEG size…</figcaption>
+                </figure>
+                <figure class="w-full max-w-xs text-left">
+                    <img src="screenshots/04-paywall.png" alt="Unlock this export sheet with measurement overlay preview and $1.99 price" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
+                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Unlock — preview with live measurement overlay &amp; $1.99 price</figcaption>
+                </figure>
+                <figure class="w-full max-w-xs text-left">
+                    <img src="screenshots/05-exported.png" alt="Unlocked portrait with Share, Rate, Review, Download and Start over" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
+                    <figcaption class="mt-3 text-xs text-gray-500 px-1">After export — share / rate / review • download • start over</figcaption>
+                </figure>
+                <figure class="w-full max-w-xs text-left">
+                    <img src="screenshots/06-saved-photos.png" alt="All Saved Photos gallery grid" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
+                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Saved Photos — past exports on this iPhone</figcaption>
+                </figure>
+                <figure class="w-full max-w-xs text-left">
+                    <img src="screenshots/07-languages.png" alt="Language switcher menu with seven languages" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
+                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Language switcher — 7 interface languages, one tap</figcaption>
+                </figure>
             </div>
             <p class="text-center text-sm text-gray-400 mt-12 max-w-2xl mx-auto">The same <strong class="text-gray-600">live checklist</strong> style as our US, China &amp; Schengen apps — tuned to the India e-Visa upload spec.</p>
         </div>
