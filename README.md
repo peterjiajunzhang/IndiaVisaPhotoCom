@@ -43,3 +43,11 @@ The homepage and privacy policy no longer load Tailwind or Lucide at runtime. Th
 The previous homepage treated 1000 px and 300 KB as e-Visa portal photo ceilings. The official instructions give a 1 MB JPEG ceiling and the official upload example gives a 350×350 px minimum. The new copy labels the 1000 px and 300 KB figures as app export settings. Preview and retries are free. A JPEG export is a single purchase; the U.S. storefront price is $1.99 USD and local storefronts may differ.
 
 The iPhone download buttons share the App Store Connect campaign `india-website-20261117` with the matching Visa Photo 1-Tap links. The provider token is the one issued for this developer account. The structured app listing URL remains clean.
+
+## Page-level store attribution
+
+Coverage includes 1 pages with existing store actions. Guide indexes, policy and support pages without store links retain their original navigation.
+
+Website attribution uses one campaign for each canonical page and destination app. Repeated links to the same app on a page share its campaign. iPhone links retain the developer's existing provider token. Google Play uses its supported campaign parameter for eligible US links. The previous shared campaigns remain in deployment history and existing campaign records.
+
+Direct store links still work if the counter cannot load. A real store link click sends the canonical page path and store/app target to a first-party counter. It uses no cookies or user/device identifiers, sends no photos, and stores aggregate counts. Automated checks use a separate QA flag. The counter records supported browser activations of direct store links. Store reports provide downloads when their reporting thresholds are met. Choosing a country site attributes the eventual download to the page that links directly to the store. [Website analytics disclosure](https://us.visaphoto1tap.com/privacy.html#website-analytics)
